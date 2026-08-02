@@ -1,0 +1,277 @@
+generated: '2026-08-02'
+method: probed
+source: https://vecnarobotics.my.site.com/.well-known/openid-configuration
+note: Scopes advertised by the scopes_supported array of the live OpenID Connect discovery document on
+  the Vecna Robotics partner portal (Salesforce Experience Cloud). These are the Salesforce platform scope
+  set as exposed on Vecna's org host, not a Vecna-authored scope taxonomy — Vecna Robotics publishes no
+  product API and therefore no product scope reference. Descriptions are the documented meaning of each
+  Salesforce OAuth scope; scope names are recorded verbatim from the discovery document.
+schemes:
+- name: PartnerPortalOIDC
+  source: well-known/vecna-robotics-openid-configuration.json
+  issuer: https://vecnarobotics.my.site.com
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://vecnarobotics.my.site.com/services/oauth2/authorize
+    tokenUrl: https://vecnarobotics.my.site.com/services/oauth2/token
+  - flow: implicit
+    authorizationUrl: https://vecnarobotics.my.site.com/services/oauth2/authorize
+scope_count: 36
+scopes:
+- scope: address
+  description: Access the address claim.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: api
+  description: Access the Salesforce platform REST/SOAP APIs on behalf of the user.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: cdp_api
+  description: Access the Data Cloud (CDP) API.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: cdp_calculated_insight_api
+  description: Access Data Cloud calculated insights.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: cdp_identityresolution_api
+  description: Access Data Cloud identity resolution.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: cdp_ingest_api
+  description: Ingest records into Data Cloud.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: cdp_profile_api
+  description: Access Data Cloud unified profiles.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: cdp_query_api
+  description: Query Data Cloud data.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: cdp_segment_api
+  description: Access Data Cloud segmentation.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: chatbot_api
+  description: Access the Einstein Bots (chatbot) API.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: chatter_api
+  description: Access the Chatter (Connect) REST API.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: content
+  description: Access Salesforce content/files (Content and Files APIs).
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: custom_permissions
+  description: Return the custom permissions in the org associated with the user.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: data_cloud_user_claims
+  description: Return Data Cloud user claims in the token response.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: eclair_api
+  description: Access the CRM Analytics Eclair chart API.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: einstein_gpt_api
+  description: Access the Einstein GPT / generative AI API.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: email
+  description: Access the email and email_verified claims.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: forgot_password
+  description: Access the forgot-password / password-reset API.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: full
+  description: Full access to all data accessible to the authenticated user (excludes refresh_token).
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: id
+  description: Access the Salesforce identity URL for the user.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: interaction_api
+  description: Access the Salesforce Interaction (Marketing Cloud Personalization) API.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: lightning
+  description: Access Lightning Experience / Lightning component resources.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: mcp_api
+  description: Access the Salesforce Model Context Protocol (MCP) API surface.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: offline_access
+  description: Equivalent to refresh_token; keep access after the user is offline.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: openid
+  description: Issue an OpenID Connect ID token for the authenticated portal user.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: pardot_api
+  description: Access the Account Engagement (Pardot) API.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: phone
+  description: Access the phone_number and phone_number_verified claims.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: profile
+  description: Access the standard OIDC profile claims for the authenticated user.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: pwdless_login_api
+  description: Access the passwordless login API.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: refresh_token
+  description: Issue a refresh token so the client can obtain new access tokens.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: scrt_api
+  description: Access the Service Cloud Real-Time (SCRT) messaging API.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: sfap_api
+  description: Access the Salesforce AI platform (Models/Agent) API.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: user_registration_api
+  description: Access the self-registration / user registration API for the portal.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: visualforce
+  description: Access Visualforce pages.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: wave_api
+  description: Access the CRM Analytics (Wave) REST API.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+- scope: web
+  description: Open the portal web UI in a browser session using the issued access token.
+  flows:
+  - authorizationCode
+  - implicit
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+x-evidence:
+  fetched: '2026-08-02'
+  url: https://vecnarobotics.my.site.com/.well-known/openid-configuration
+  http_status: 200
+  content_type: application/json;charset=UTF-8

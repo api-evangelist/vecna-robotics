@@ -1,23 +1,113 @@
 aid: vecna-robotics
 name: Vecna Robotics
-description: 'Vecna Robotics is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Vecna Robotics is a Waltham, Massachusetts material-handling automation
+  company, spun out of Vecna Technologies in 2018, that builds autonomous mobile robots
+  (AMRs) — autonomous forklifts, pallet trucks, tuggers, conveyor and lifter platforms
+  — together with Pivotal, its end-to-end orchestration software suite for warehouse
+  and manufacturing operations. Pivotal spans Orchestration (real-time task allocation
+  and routing), Autonomous Navigation (3D lidar/vision sensor fusion), Insights (analytics
+  and KPI dashboards), Integrations (WMS / MES / ERP, barcode scanning, on-robot and
+  remote tablet UIs, call buttons, smart I/O) and the Pivotal Command Center, a 24/7
+  human-in-the-loop teleoperation and remote monitoring service. Vecna sells the fleet
+  as Robots-as-a-Service (RaaS) alongside the CaseFlow case-picking solution, and markets
+  "flexible API integrations" into existing WMS/WES environments — but publishes no
+  public developer portal, API reference, or machine-readable API contract as of this
+  profiling pass. The only anonymous machine-readable surface found is the OpenID Connect
+  discovery document served by its Salesforce Experience Cloud partner portal.'
 url: https://raw.githubusercontent.com/api-evangelist/vecna-robotics/refs/heads/main/apis.yml
+image: https://www.vecnarobotics.com/wp-content/uploads/2024/02/Vecna_OpenGraph_Fleet@2x.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pass
 specificationVersion: '0.20'
 created: '2026-08-02'
 modified: '2026-08-02'
 tags:
 - Company
-apis: []
+- Robotics
+- Warehouse Automation
+- Autonomous Mobile Robots
+- Material Handling
+- Logistics
+- Supply Chain
+- Manufacturing
+- Industrial Automation
+- Robotics as a Service
+apis:
+- aid: vecna-robotics:partner-portal-identity
+  name: Vecna Robotics Partner Portal Identity (OpenID Connect)
+  description: 'OpenID Connect / OAuth 2.0 identity endpoints served from the Vecna
+    Robotics partner portal host (vecnarobotics.my.site.com), a Salesforce Experience
+    Cloud community. The discovery document at /.well-known/openid-configuration is
+    served anonymously and advertises authorization, token, userinfo, revocation, introspection,
+    dynamic-registration and JWKS endpoints plus the platform scope set. This is the
+    partner-portal identity surface, not a Vecna Robotics product API — Vecna publishes
+    no public product API contract.'
+  humanURL: https://vecnarobotics.my.site.com/partner/s/login
+  baseURL: https://vecnarobotics.my.site.com
+  tags:
+  - Identity
+  - OpenID Connect
+  - OAuth
+  - Partner Portal
+  properties:
+  - type: OpenIDConnect
+    url: https://vecnarobotics.my.site.com/.well-known/openid-configuration
+  - type: WellKnown
+    url: well-known/vecna-robotics-well-known.yml
+  - type: Authentication
+    url: authentication/vecna-robotics-authentication.yml
+  - type: OAuthScopes
+    url: scopes/vecna-robotics-scopes.yml
+  - type: Login
+    url: https://vecnarobotics.my.site.com/partner/s/login
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/vecna-robotics-domain-security.yml
 - type: Website
+  url: https://www.vecnarobotics.com/
+- type: SecondaryMarket
   url: https://forgeglobal.com/vecna-robotics_stock/
+- type: About
+  url: https://www.vecnarobotics.com/company/about-us/
+- type: Blog
+  url: https://www.vecnarobotics.com/resource-hub/
+- type: BlogRSS
+  url: https://www.vecnarobotics.com/resource-hub/feed/
+- type: Press
+  url: https://www.vecnarobotics.com/news-and-press/
+- type: PressRSS
+  url: https://www.vecnarobotics.com/news-and-press/feed/
+- type: Support
+  url: https://www.vecnarobotics.com/contact-us/
+- type: PrivacyPolicy
+  url: https://www.vecnarobotics.com/privacy-policy/
+- type: GitHubOrganization
+  url: https://github.com/vecnarobotics
+- type: Careers
+  url: https://www.vecnarobotics.com/company/careers/
+- type: Partners
+  url: https://www.vecnarobotics.com/partners/
+- type: Login
+  url: https://vecnarobotics.my.site.com/partner/s/login
+- type: LLMsTxt
+  url: llms/vecna-robotics-llms.txt
+- type: WellKnown
+  url: well-known/vecna-robotics-well-known.yml
+- type: Authentication
+  url: authentication/vecna-robotics-authentication.yml
+- type: OAuthScopes
+  url: scopes/vecna-robotics-scopes.yml
+- type: Conformance
+  url: conformance/vecna-robotics-conformance.yml
+x-enrichment:
+  date: '2026-08-02'
+  status: enriched
+  artifacts_added: 7
+  pass: local-v1

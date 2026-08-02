@@ -1,0 +1,84 @@
+generated: '2026-08-02'
+method: probed
+source: live probes of Vecna Robotics hosts; https://vecnarobotics.my.site.com/.well-known/openid-configuration
+note: >-
+  Vecna Robotics publishes no OpenAPI, AsyncAPI, GraphQL SDL, or MCP server, so most
+  API-level standards cannot be asserted either way from a contract. Every entry below
+  is backed by an observed probe result; `conforms: false` here means "no published
+  evidence found", not "verified non-compliant". No compliance/certification program
+  (SOC 2, ISO 27001, HIPAA, FedRAMP) is published on any Vecna Robotics host, so no
+  `Compliance` pointer is emitted.
+standards:
+- id: oidc-discovery
+  name: OpenID Connect Discovery 1.0
+  conforms: true
+  evidence: https://vecnarobotics.my.site.com/.well-known/openid-configuration returns
+    HTTP 200 application/json with issuer, authorization_endpoint, token_endpoint,
+    userinfo_endpoint, jwks_uri
+- id: oauth2
+  name: OAuth 2.0 (RFC 6749)
+  conforms: true
+  evidence: authorization_endpoint + token_endpoint advertised; response_types_supported
+    [code, token, token id_token]
+- id: rfc7009-token-revocation
+  name: OAuth 2.0 Token Revocation
+  conforms: true
+  evidence: revocation_endpoint https://vecnarobotics.my.site.com/services/oauth2/revoke
+- id: rfc7662-token-introspection
+  name: OAuth 2.0 Token Introspection
+  conforms: true
+  evidence: introspection_endpoint https://vecnarobotics.my.site.com/services/oauth2/introspect
+- id: rfc7591-dynamic-client-registration
+  name: OAuth 2.0 Dynamic Client Registration
+  conforms: true
+  evidence: registration_endpoint https://vecnarobotics.my.site.com/services/oauth2/register
+- id: rfc7523-private-key-jwt
+  name: JWT client authentication
+  conforms: true
+  evidence: token_endpoint_auth_methods_supported includes private_key_jwt
+- id: rfc7517-jwks
+  name: JSON Web Key Set
+  conforms: true
+  evidence: jwks_uri https://vecnarobotics.my.site.com/id/keys
+- id: llmstxt
+  name: llms.txt AI-usage declaration
+  conforms: true
+  evidence: https://www.vecnarobotics.com/llms.txt returns HTTP 200 text/plain (version
+    1.0, updated 2026-01-14); saved verbatim at llms/vecna-robotics-llms.txt
+- id: rfc8615-well-known
+  name: Well-Known URIs
+  conforms: true
+  evidence: partner portal serves /.well-known/openid-configuration; marketing host
+    returns 404 for all /.well-known/* paths
+- id: rfc9116-security-txt
+  name: security.txt
+  conforms: false
+  evidence: /.well-known/security.txt 404 on www.vecnarobotics.com, 401 on vecnarobotics.my.site.com
+- id: rfc8414-oauth-authorization-server-metadata
+  name: OAuth 2.0 Authorization Server Metadata
+  conforms: false
+  evidence: /.well-known/oauth-authorization-server 404 on all hosts
+- id: rfc9457-problem-details
+  name: Problem Details for HTTP APIs
+  conforms: false
+  evidence: no OpenAPI or public error reference published
+- id: openapi
+  name: OpenAPI Specification
+  conforms: false
+  evidence: no spec found at /openapi.json, /openapi.yaml, /swagger.json, /api-docs,
+    /redoc on any resolving host
+- id: asyncapi
+  name: AsyncAPI
+  conforms: false
+  evidence: no event/webhook/streaming surface documented publicly
+- id: a2a
+  name: A2A Agent Card
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json miss on every
+    host (404 marketing, 401 portal)
+- id: mcp
+  name: Model Context Protocol
+  conforms: false
+  evidence: no hosted MCP server found; note the portal OIDC scope list advertises
+    Salesforce's platform `mcp_api` scope, which is a Salesforce capability, not a
+    Vecna Robotics MCP server

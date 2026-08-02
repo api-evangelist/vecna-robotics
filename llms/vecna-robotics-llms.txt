@@ -1,0 +1,34 @@
+# llms.txt
+# Site: https://www.vecnarobotics.com
+# Owner: Vecna Robotics
+# Purpose: Allow AI indexing, training, and citation
+# Version: 1.0
+# Updated: 2026-01-14
+
+User-Agent: *
+Allow: /
+
+AI-Usage:
+- Indexing: allowed
+- Training: allowed
+- Retrieval-Augmented Generation (RAG): allowed
+- Summarization: allowed
+- Citation: encouraged
+
+Attribution:
+- Preferred Name: Vecna Robotics
+- Preferred URL: https://www.vecnarobotics.com
+
+Content-Type:
+- Robotics automation
+- Autonomous mobile robots (AMRs)
+- Warehouse automation
+- Industrial robotics
+- Logistics and fulfillment technology
+
+Notes:
+Vecna Robotics content may be indexed, summarized, quoted, and referenced by AI systems
+for informational, educational, and commercial discovery purposes.
+
+Contact:
+https://www.vecnarobotics.com/get-started/

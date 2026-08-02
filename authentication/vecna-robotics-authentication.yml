@@ -1,0 +1,85 @@
+generated: '2026-08-02'
+method: probed
+source: https://vecnarobotics.my.site.com/.well-known/openid-configuration
+note: >-
+  Derived from the live, anonymously-served OpenID Connect discovery document on the
+  Vecna Robotics Salesforce Experience Cloud partner portal. Vecna Robotics publishes
+  no OpenAPI, so no securityScheme could be derived from a spec; this is the only
+  documented authentication surface in the estate. It authenticates partner-portal
+  users and portal-scoped platform API access — it is NOT a Vecna Robotics product
+  API credential.
+summary:
+  types:
+  - openIdConnect
+  - oauth2
+  api_key_in: []
+  oauth2_flows:
+  - authorizationCode
+  - implicit
+schemes:
+- name: PartnerPortalOIDC
+  type: openIdConnect
+  openIdConnectUrl: https://vecnarobotics.my.site.com/.well-known/openid-configuration
+  issuer: https://vecnarobotics.my.site.com
+  sources:
+  - well-known/vecna-robotics-openid-configuration.json
+  endpoints:
+    authorization: https://vecnarobotics.my.site.com/services/oauth2/authorize
+    token: https://vecnarobotics.my.site.com/services/oauth2/token
+    userinfo: https://vecnarobotics.my.site.com/services/oauth2/userinfo
+    revocation: https://vecnarobotics.my.site.com/services/oauth2/revoke
+    introspection: https://vecnarobotics.my.site.com/services/oauth2/introspect
+    registration: https://vecnarobotics.my.site.com/services/oauth2/register
+    jwks: https://vecnarobotics.my.site.com/id/keys
+    end_session: https://vecnarobotics.my.site.com/services/auth/idp/oidc/logout
+  response_types_supported:
+  - code
+  - token
+  - token id_token
+  subject_types_supported:
+  - public
+  id_token_signing_alg_values_supported:
+  - RS256
+  token_endpoint_auth_methods_supported:
+  - client_secret_post
+  - client_secret_basic
+  - private_key_jwt
+  dynamic_client_registration: true
+  token_introspection: true
+  frontchannel_logout_supported: true
+  claims_supported:
+  - active
+  - address
+  - email
+  - email_verified
+  - family_name
+  - given_name
+  - is_app_installed
+  - language
+  - locale
+  - name
+  - nickname
+  - organization_id
+  - phone_number
+  - phone_number_verified
+  - photos
+  - picture
+  - preferred_username
+  - profile
+  - sub
+  - updated_at
+  - urls
+  - user_id
+  - user_type
+  - zoneinfo
+gaps:
+- No public product API, so no product-level authentication documentation exists.
+- No /.well-known/oauth-authorization-server (RFC 8414) or /.well-known/oauth-protected-resource
+  document published on any host.
+- Vecna markets "flexible API integrations" with WMS/MES/ERP but documents no auth
+  model for them publicly; integration credentials appear to be issued per deployment.
+x-evidence:
+  fetched: '2026-08-02'
+  url: https://vecnarobotics.my.site.com/.well-known/openid-configuration
+  http_status: 200
+  content_type: application/json;charset=UTF-8

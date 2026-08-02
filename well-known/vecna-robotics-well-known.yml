@@ -1,0 +1,87 @@
+generated: '2026-08-02'
+method: probed
+source: live GET of /.well-known/* and root discovery paths on every Vecna Robotics host
+note: >-
+  Vecna Robotics publishes no developer portal, API reference, or machine-readable
+  API contract on its marketing host. The one anonymous machine-readable discovery
+  document found across the estate is the OpenID Connect configuration served by the
+  Salesforce Experience Cloud partner portal at vecnarobotics.my.site.com. The marketing
+  host answers every /.well-known/* path with its WordPress 404 HTML page (HTTP 404),
+  so no false positives were recorded. A real /llms.txt IS published and is captured
+  verbatim at llms/vecna-robotics-llms.txt.
+hosts:
+- host: https://www.vecnarobotics.com
+  role: marketing website (WordPress)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain
+    file: ../llms/vecna-robotics-llms.txt
+  - path: /robots.txt
+    status: 200
+  - path: /sitemap_index.xml
+    status: 200
+- host: https://vecnarobotics.my.site.com
+  role: Salesforce Experience Cloud partner portal
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json;charset=UTF-8
+    file: vecna-robotics-openid-configuration.json
+  - path: /.well-known/security.txt
+    status: 401
+  - path: /.well-known/agent-card.json
+    status: 401
+  - path: /.well-known/agent.json
+    status: 401
+  - path: /services/data/
+    status: 200
+    content_type: application/json;charset=UTF-8
+    note: Salesforce platform REST API version listing; 37 versions, latest v67.0 (Summer
+      '26). Resource access below this path is authenticated.
+contract_discovery:
+  openapi:
+    probed:
+    - https://www.vecnarobotics.com/openapi.json
+    - https://www.vecnarobotics.com/openapi.yaml
+    - https://www.vecnarobotics.com/swagger.json
+    - https://www.vecnarobotics.com/api-docs
+    - https://www.vecnarobotics.com/redoc
+    result: none — every path returned HTTP 404 (WordPress 404 HTML)
+  graphql:
+    probed:
+    - https://www.vecnarobotics.com/graphql
+    result: none — HTTP 404
+  mcp:
+    result: no hosted MCP server found in docs, registries, or on any host
+  agent_card:
+    result: none — no host returned a 200 JSON AgentCard; no a2a/ artifact written
+  hosts_resolved:
+  - www.vecnarobotics.com
+  - vecnarobotics.com
+  - vecnarobotics.my.site.com
+  - vecnarobotics.my.salesforce.com
+  - vecnarobotics.lightning.force.com
+  hosts_not_resolving:
+  - docs.vecnarobotics.com
+  - api.vecnarobotics.com
+  - developer.vecnarobotics.com
+  - developers.vecnarobotics.com
+  - app.vecnarobotics.com
+  - pivotal.vecnarobotics.com
