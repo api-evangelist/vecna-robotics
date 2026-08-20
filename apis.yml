@@ -49,6 +49,11 @@ apis:
   tags:
   - Identity
   - OpenID Connect
+  - Authentication
+  - Partner Portal
+  tags_raw:
+  - Identity
+  - OpenID Connect
   - OAuth
   - Partner Portal
   properties:
