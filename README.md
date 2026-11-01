@@ -64,29 +64,94 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Vecna Robotics is a Waltham, Massachusetts material-handling automation company, spun out of Vecna Technologies in 2018, that builds autonomous mobile robots (AMRs) — autonomous forklifts, pallet trucks, tuggers, conveyor and lifter platforms — together with **Pivotal**, its end-to-end orchestration software suite for warehouse and manufacturing operations.
+Vecna Robotics is a Waltham, Massachusetts material-handling automation company, spun out of Vecna Technologies in 2018, that builds autonomous mobile robots (AMRs) — autonomous forklifts, pallet trucks, tuggers, conveyor and lifter platforms — together with Pivotal, its end-to-end orchestration software suite for warehouse and manufacturing operations. Pivotal spans Orchestration (real-time task allocation and routing), Autonomous Navigation (3D lidar/vision sensor fusion), Insights (analytics and KPI dashboards), Integrations (WMS / MES / ERP, barcode scanning, on-robot and remote tablet UIs, call buttons, smart I/O) and the Pivotal Command Center, a 24/7 human-in-the-loop teleoperation and remote monitoring service. Vecna sells the fleet as Robots-as-a-Service (RaaS) alongside the CaseFlow case-picking solution, and markets "flexible API integrations" into existing WMS/WES environments — but publishes no public developer portal, API reference, or machine-readable API contract as of this profiling pass. The only anonymous machine-readable surface found is the OpenID Connect discovery document served by its Salesforce Experience Cloud partner portal.
 
-- Website — https://www.vecnarobotics.com/
-- About — https://www.vecnarobotics.com/company/about-us/
-- Pivotal Software Suite — https://www.vecnarobotics.com/the-vecna-system/pivotal-software-suite/
-- Partners — https://www.vecnarobotics.com/partners/
-- GitHub — https://github.com/vecnarobotics
-- Secondary market — https://forgeglobal.com/vecna-robotics_stock/
+**Areas:** Company · Robotics · Warehouse Automation · Autonomous Mobile Robots · Material Handling · Logistics · Supply Chain · Manufacturing · Industrial Automation · Robotics as a Service
 
-## API posture
+## Vecna Robotics on APIs.io
 
-Vecna markets "flexible API integrations" into existing WMS / MES / ERP environments, but as of the
-2026-08-02 enrichment pass it publishes **no developer portal, no API reference, and no
-machine-readable API contract**. Contract discovery probed the marketing host, the apex domain, six
-candidate developer subdomains (none resolve), and the partner-portal host for OpenAPI, Swagger,
-GraphQL, MCP `tools/list`, and A2A agent cards — all missed.
+Everything profiled for Vecna Robotics is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/vecna-robotics/](https://apis.io/providers/vecna-robotics/)** — or go straight to one of the APIs or properties below.
 
-Two genuine machine-readable surfaces were found and captured:
+### APIs (1)
 
-| Artifact | What it is |
+- [Vecna Robotics Partner Portal Identity (OpenID Connect)](https://apis.io/apis/vecna-robotics/partner-portal-identity/) — OpenID Connect / OAuth 2.0 identity endpoints served from the Vecna Robotics partner portal host (vecnarobotics.my.site.com), a Salesforce Experience Cloud…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Vecna Robotics Authentication](https://apis.io/security/vecna-robotics/vecna-robotics-authentication/)
+- [Vecna Robotics Domain Security](https://apis.io/security/vecna-robotics/vecna-robotics-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Vecna Robotics Scopes](https://apis.io/scopes/vecna-robotics/vecna-robotics-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.vecnarobotics.com/)
+- [Support](https://www.vecnarobotics.com/contact-us/)
+- [Blog](https://www.vecnarobotics.com/resource-hub/)
+- [Privacy policy](https://www.vecnarobotics.com/privacy-policy/)
+- [GitHub](https://github.com/vecnarobotics)
+
+## API Evangelist rating
+
+**Kin Score 19.4** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
 |---|---|
-| `llms/vecna-robotics-llms.txt` | A real, provider-published `/llms.txt` (v1.0, updated 2026-01-14) declaring AI indexing / training / RAG / summarization as allowed and citation encouraged. Saved verbatim. |
-| `well-known/vecna-robotics-openid-configuration.json` | The live OpenID Connect discovery document served anonymously by the Vecna Robotics Salesforce Experience Cloud **partner portal** (`vecnarobotics.my.site.com`). Feeds `authentication/`, `scopes/` (36 scopes), and `conformance/`. |
+| Discoverability | 74.1 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 17.1 |
 
-No A2A agent card exists on any host, so no `a2a/` artifact was written — that artifact is
-search-only and is never authored on a provider's behalf.
+**Agent readiness 10.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+
+**Regulatory alignment 30.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/vecna-robotics/](https://apis.io/providers/vecna-robotics/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Vecna Robotics: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/vecna-robotics/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
